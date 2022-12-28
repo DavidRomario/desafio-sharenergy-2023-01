@@ -7,6 +7,7 @@ var cors = require("cors");
 require("dotenv-safe").config();
 
 var indexRouter = require("./src/routes/index");
+var userRouter = require("./src/routes/users");
 var db = require("./src/config/database");
 
 var app = express();
@@ -20,5 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/users", userRouter);
 
 module.exports = app;

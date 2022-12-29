@@ -1,8 +1,55 @@
 const userSchema = require("../models/userModel");
-const { use } = require("../routes");
 
-const allUser = async (req, res) => {
-  //
+const allUsers = async (req, res) => {
+  try {
+    const users = await userSchema.find({
+      deletedAt: null,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "List of users",
+      payload: users,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      payload: [],
+      message: "Internal server error",
+    });
+  }
+};
+
+const getUserById = async (req, res) => {
+  const userId = req.params.id;
+
+  try {
+    const user = await userSchema.findOne({
+      $and: [{ _id: userId }, { deletedAt: null }],
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        payload: [],
+        message: "User not found.",
+      });
+    } else {
+      return res.status(200).json({
+        success: true,
+        payload: user,
+        message: "User returned with success.",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      payload: [],
+      message: "Internal server error",
+    });
+  }
 };
 
 const createUser = async (req, res) => {
@@ -21,19 +68,25 @@ const createUser = async (req, res) => {
     if (verifyData !== null) {
       return res.status(409).json({
         success: false,
-        message: "User already exists",
         payload: [],
+        message: "User already exists",
       });
     }
 
     const savedUser = await newUser.save();
 
-    res.status(201).json({
-      message: "success",
-      savedUser,
+    return res.status(200).json({
+      success: true,
+      payload: [savedUser],
+      message: "User created with success.",
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      success: false,
+      payload: [],
+      message: "Internal server error",
+    });
   }
 };
 
@@ -48,11 +101,12 @@ const updateUser = async (req, res) => {
 
   try {
     const user = await userSchema.findById(userId);
+
     if (!user) {
       return res.status(404).json({
         success: false,
         payload: [],
-        message: "Usario nao encontrado",
+        message: "User not found.",
       });
     }
 
@@ -71,9 +125,10 @@ const updateUser = async (req, res) => {
 
     const newUser = await userSchema.findById(userId);
 
-    return res.status(200).send({
-      message: "usuário atualizado com sucesso",
-      newUser,
+    return res.status(200).json({
+      success: true,
+      payload: [newUser],
+      message: "User updated with success.",
     });
   } catch {
     console.log(error);
@@ -94,7 +149,7 @@ const deleteUsers = async (req, res) => {
       return res.status(404).json({
         success: false,
         payload: [],
-        message: "Usario nao encontrado",
+        message: "User not found.",
       });
     }
 
@@ -107,8 +162,10 @@ const deleteUsers = async (req, res) => {
       }
     );
 
-    return res.status(200).send({
-      message: "Usuario deletado",
+    return res.status(200).json({
+      success: true,
+      payload: [],
+      message: "User deleted with success",
     });
   } catch (error) {
     console.log(error);
@@ -120,4 +177,4 @@ const deleteUsers = async (req, res) => {
   }
 };
 
-module.exports = { allUser, createUser, updateUser, deleteUsers };
+module.exports = { allUsers, createUser, updateUser, deleteUsers, getUserById };

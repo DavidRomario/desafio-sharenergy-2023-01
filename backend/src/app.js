@@ -6,9 +6,10 @@ var cors = require("cors");
 
 require("dotenv-safe").config();
 
-var indexRouter = require("./src/routes/index");
-var userRouter = require("./src/routes/users");
-var db = require("./src/config/database");
+var indexRouter = require("./routes/index");
+var userRouter = require("./routes/users");
+var loginRouter = require("./routes/login");
+var db = require("./config/database");
 
 var app = express();
 db.connect();
@@ -22,5 +23,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", userRouter);
+app.use("/login", loginRouter);
 
 module.exports = app;

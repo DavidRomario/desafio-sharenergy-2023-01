@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+   backend:
+    build: src
+    ports:
+      - 3000:3000
+    volumes:
+      - ../backend/src/:/app/
+      - /app/node_modules
+    entrypoint: "npm start"
+    depends_on:
+      - backend-mongo-data
+    environment:
+      MONGO_HOST: "mongodb://backend_mongodb"
+      MONGODB_PORT: "27017"
+      MONGO_DB: "users"
+
+  # mongodb image
+  backend_mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - backend-mongo-data:/data/db
+
+volumes:
+  backend-mongo-data:

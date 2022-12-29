@@ -13,13 +13,23 @@ const createUser = async (req, res) => {
     newUser.telephone = req.body.telephone;
     newUser.address = req.body.address;
     newUser.cpf = req.body.cpf;
-    //   console.log("criado", newUser);
+
+    const verifyData = await userSchema.findOne({
+      $or: [{ cpf: req.body.cpf }, { email: req.body.email }],
+    });
+
+    if (verifyData !== null) {
+      return res.status(409).json({
+        success: false,
+        message: "User already exists",
+        payload: [],
+      });
+    }
 
     const savedUser = await newUser.save();
-    // console.log("salvo", savedUser);
 
-    res.status(201).send({
-      message: "sucesso",
+    res.status(201).json({
+      message: "success",
       savedUser,
     });
   } catch (error) {
@@ -38,7 +48,15 @@ const updateUser = async (req, res) => {
 
   try {
     const user = await userSchema.findById(userId);
-    const update = await userSchema.updateOne(
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        payload: [],
+        message: "Usario nao encontrado",
+      });
+    }
+
+    await userSchema.updateOne(
       {
         _id: userId,
       },
@@ -52,12 +70,18 @@ const updateUser = async (req, res) => {
     );
 
     const newUser = await userSchema.findById(userId);
+
     return res.status(200).send({
       message: "usuário atualizado com sucesso",
       newUser,
     });
   } catch {
-    return res.status(404).send("Usuario não encontrado");
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      payload: [],
+      message: "Internal server error",
+    });
   }
 };
 
@@ -66,17 +90,33 @@ const deleteUsers = async (req, res) => {
 
   try {
     const user = await userSchema.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        payload: [],
+        message: "Usario nao encontrado",
+      });
+    }
 
-    const deleteUserData = await userSchema.deleteOne({
-      _id: userId,
-    });
+    await userSchema.updateOne(
+      {
+        _id: userId,
+      },
+      {
+        deletedAt: new Date(),
+      }
+    );
 
     return res.status(200).send({
       message: "Usuario deletado",
     });
   } catch (error) {
     console.log(error);
-    return res.status(404).send("Usuario não encontrado");
+    return res.status(500).json({
+      success: false,
+      payload: [],
+      message: "Internal server error",
+    });
   }
 };
 

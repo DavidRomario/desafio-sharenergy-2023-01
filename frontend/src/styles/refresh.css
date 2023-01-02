@@ -28,6 +28,7 @@ body {
 #pic {
     display: flex;
     padding: 25px;
+    max-width: 50%;
     margin: auto;
 }
 

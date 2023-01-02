@@ -28,7 +28,7 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-#user {
+.user {
     background-color: white;
     display: flex;
     align-items: center;

@@ -9,6 +9,10 @@ body {
     width: 95%;
 }
 
+#root {
+    height: 100%;
+}
+
 .form {
     background: #FFFFFF;
     text-align: center;

@@ -13,5 +13,6 @@ export default function Home() {
             <button>login</button>
             <input type="checkbox"/><label>Remember me</label>
         </form>
-    </div>)
+    </div>
+    )
 }

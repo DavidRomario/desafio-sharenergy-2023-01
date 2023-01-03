@@ -1,11 +1,36 @@
-body {
+header {
     width: 100%;
-    margin: auto;
-    background: rgb(28, 182, 169);
+    height: 106px;
+    display: flex;
+    align-items: center;
+    background-color: #6f695d;
+    justify-content: space-around;
+}
+
+#logo {
+    margin: 10px;
+    padding: 10px;
+    height: 75px;
+    border-radius: 25px;
+}
+
+.sharenergy {
+    margin: 0px 0px;
+    height: 22px;
+    font-size: 20px;
+}
+
+ul {
+    display: flex;
+    color: white;
+    cursor: pointer;
+}
+
+ol:hover {
+    font-weight: bold;
 }
 
 #search {
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,18 +38,29 @@ body {
 }
 
 .btn {
-    background: rgb(208, 252, 248);
-    height: 30px;
-    width: 125vh;
+    height: 32px;
+    width: 30vw;
 }
 
 .bt {
     height: 30px;
     text-transform: uppercase;
-    background: #4CAF50;
+    background: #e5eb70;
     border: 0;
-    color: #FFFFFF;
+    color: black;
     cursor: pointer;
+}
+
+.bt:hover {
+    background-color: #F8FBC2;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #6ac2c3;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
 }
 
 #pic {
@@ -47,6 +83,5 @@ body {
     background-color: white;
     width: 90%;
     margin: 55px auto;
-    padding: 3px 0;
-    border-radius: 10px;
+    border-radius: 25px;
 }

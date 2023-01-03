@@ -1,22 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/pages/Home";
+import Login from "./components/pages/Login";
 import Random from "./components/pages/RandomUserList";
 import StatusCodeCat from "./components/pages/StatusCodeCat";
-import Refresh from "./components/pages/Refresh";
-import "./styles/home.css";
+import RandomDogs from "./components/pages/RandomDogs";
+import Users from "./components/pages/Users";
+
+import "./styles/login.css";
 import "./styles/random.css";
 import "./styles/statuscat.css";
-import "./styles/refresh.css";
+import "./styles/randomdogs.css";
+import "./styles/users.css";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/random" element={<Random />} />
         <Route path="/statuscode" element={<StatusCodeCat />} />
-        <Route path="/refresh" element={<Refresh />} />
+        <Route path="/randomdogs" element={<RandomDogs />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </BrowserRouter>
   );

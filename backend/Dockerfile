@@ -4,9 +4,9 @@ RUN mkdir /app/
 
 WORKDIR /app/
 
-COPY ./ /app/
+COPY / /app/
 RUN rm -rf /app/node_modules
 RUN npm install
 
 EXPOSE 3000
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["npm", "start"]

@@ -1,50 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-body {
-    background: #6ac2c3;
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 3% 0 0;
-    width: 95%;
-}
-
 .form {
-    background: #FFFFFF;
-    text-align: center;
-    width: 360px;
-    padding: 45px;
-    margin: auto;
-    border-radius: 15px;
+  background: #ffffff;
+  text-align: center;
+  width: 360px;
+  padding: 45px;
+  margin: auto;
+  border-radius: 15px;
 }
 
 .form input {
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-    border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .form button {
-    text-transform: uppercase;
-    outline: 0;
-    background: #e5eb70;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: black;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+  text-transform: uppercase;
+  outline: 0;
+  background: #e5eb70;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .form button:hover,
 .form button:focus {
-    background-color: #F8FBC2;
+  background-color: #f8fbc2;
 }

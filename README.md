@@ -42,10 +42,4 @@ Construir uma aplicação web (frontend e backend) capaz de realizar a comunica�
 
 # Vídeo de apresentação do desafio
 
-- [Youtube](...)
-
-# Documentação back-end no Postman
-
-## Collection do CRUD de Usuários + Login
-
-- [Collection](link)
+- [Youtube](https://youtu.be/7SZYi9O47hs)

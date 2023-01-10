@@ -9,6 +9,7 @@ const login = async (req, res) => {
     const findAdmin = await adminSchema.findOne({
       username: req.body.username,
     });
+    console.log(req.body);
     if (!findAdmin) {
       return res.status(401).json({
         success: false,

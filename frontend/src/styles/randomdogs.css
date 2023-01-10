@@ -20,15 +20,6 @@ header {
     font-size: 20px;
 }
 
-ul {
-    display: flex;
-    color: white;
-    cursor: pointer;
-}
-
-ol:hover {
-    font-weight: bold;
-}
 
 #search {
     display: flex;
@@ -38,6 +29,8 @@ ol:hover {
 }
 
 .btn {
+    border: 0;
+    border-radius: 10px;
     height: 32px;
     width: 30vw;
 }
@@ -49,10 +42,29 @@ ol:hover {
     border: 0;
     color: black;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0;
 }
 
 .bt:hover {
+    background-color: #F8FBC2;
+}
+
+.refresh {
+    height: 30px;
+    text-transform: uppercase;
+    background: #e5eb70;
+    border: 0;
+    color: black;
+    cursor: pointer;
+    border-radius:  5px;
+}
+
+.repagination {
+    display: flex;
+    justify-content: space-around
+}
+
+.refresh:hover {
     background-color: #F8FBC2;
 }
 

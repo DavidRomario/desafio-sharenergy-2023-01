@@ -22,13 +22,31 @@ header {
     font-size: 20px;
 }
 
-ul {
+#link {
     display: flex;
-    color: white;
-    cursor: pointer;
 }
 
-ol:hover {
+.data {
+    margin-left: 10px;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+.tag {
+    display: flex;
+    justify-content: space-around;
+    padding: 25px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tag:hover {
+
     font-weight: bold;
 }
 
@@ -37,24 +55,6 @@ ol:hover {
     justify-content: center;
     align-items: center;
     margin: auto;
-}
-
-.btn {
-    height: 32px;
-    width: 30vw;
-}
-
-.bt {
-    height: 30px;
-    text-transform: uppercase;
-    background: #e5eb70;
-    border: 0;
-    color: black;
-    cursor: pointer;
-}
-
-.bt:hover {
-    background-color: #F8FBC2;
 }
 
 body {
@@ -72,10 +72,15 @@ body {
     padding: 12px 15px;
     margin: 35px auto;
     width: 130vh;
-    justify-content: start;
     border-radius: 25px;
 }
 
 .pic {
     border-radius: 50%;
+}
+
+h1,
+h2,
+p {
+    margin: 5px;
 }

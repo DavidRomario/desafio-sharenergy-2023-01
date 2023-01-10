@@ -1,26 +1,12 @@
 version: "3.1"
-
 services:
-  backend:
-    build: backend
-    ports:
-      - 3000:3000
-    volumes:
-      - ../backend/:/app/
-      - /app/node_modules
-    entrypoint: "npm start"
-    depends_on:
-      - backend_mongodb
-    environment:
-      MONGODB_URI: "mongodb://backend_mongodb"
-      MONGODB_PORT: "27017"
-      MONGO_DB: "users"
-
-  # mongodb image
   backend_mongodb:
     image: mongo
+    environment:
+      DB_ROOT_USERNAME: root
+      DB_ROOT_PASSWORD: password
     ports:
-      - 27017:27017
+      - 27018:27017
     volumes:
       - backend-mongo-data:/data/db
 

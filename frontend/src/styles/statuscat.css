@@ -20,15 +20,6 @@ header {
     font-size: 20px;
 }
 
-ul {
-    display: flex;
-    color: white;
-    cursor: pointer;
-}
-
-ol:hover {
-    font-weight: bold;
-}
 
 #search {
     display: flex;
@@ -37,36 +28,12 @@ ol:hover {
     margin: auto;
 }
 
-.btn {
-    height: 32px;
-    width: 30vw;
-}
-
-.bt {
-    height: 30px;
-    text-transform: uppercase;
-    background: #e5eb70;
-    border: 0;
-    color: black;
-    cursor: pointer;
-}
-
-.bt:hover {
-    background-color: #F8FBC2;
-}
-
 body {
     padding: 0;
     margin: 0;
     background: #6ac2c3;
     font-family: "Roboto", sans-serif;
     width: 100%;
-}
-
-#pic {
-    display: block;
-    margin: 0px auto;
-    padding-bottom: 15px;
 }
 
 #status {

@@ -32,16 +32,16 @@ export default function Users() {
   function editUser(id) {
     setIsEditing(true);
 
-    setSingleUser(users.filter((user) => user._id === id)[0]);
+    const currentUser = users.filter((user) => user._id === id)[0];
 
-    setTimeout(() => {
-      setName(singleUser.name);
-      setEmail(singleUser.email);
-      setTelephone(singleUser.telephone);
-      setPassword(singleUser.password);
-      setAddress(singleUser.address);
-      setCpf(singleUser.cpf);
-    }, 1000);
+    setSingleUser(currentUser);
+
+    setName(currentUser.name);
+    setEmail(currentUser.email);
+    setTelephone(currentUser.telephone);
+    setPassword(currentUser.password);
+    setAddress(currentUser.address);
+    setCpf(currentUser.cpf);
   }
 
   async function submitForm() {
@@ -153,7 +153,7 @@ export default function Users() {
         </section>
         <section id="user-view">
           {users.map((user) => (
-            <div className="list">
+            <div key={user.cpf} className="list">
               <div className="user-data">
                 <span>{user.name}</span>
                 <span>{user.email}</span>

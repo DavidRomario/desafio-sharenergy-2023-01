@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../images/download.jpeg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [username, setUsername] = useState(() => {
@@ -17,6 +18,8 @@ export default function Login() {
     const rememberLocalStorage = localStorage.getItem("remember");
     return rememberLocalStorage === "true";
   });
+
+  const navigate = useNavigate();
 
   const toggleRemember = () => {
     if (remember) {
@@ -40,8 +43,10 @@ export default function Login() {
         password: password,
       };
 
-      const request = await axios.post("http://localhost:3000/login", body);
+      const request = await axios.post("http://localhost:3010/login", body);
+
       localStorage.setItem("token", request.data.payload[0]);
+      navigate("/random/user");
       return await request.data;
     } catch (error) {
       console.log(error);
